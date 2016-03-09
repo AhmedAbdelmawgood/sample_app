@@ -11,7 +11,4 @@ class StaticPagesController < ApplicationController
 
   def about 
   end
-  def test
-  	fail
-  end
 end
