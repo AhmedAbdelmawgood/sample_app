@@ -1,5 +1,21 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+/*mixins, variables*/
+@mixin box-sizing{
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	box-sizing:border box;
+}
+.debug_dump{
+	clear:both;
+	float:left;
+	width:100%;
+	margin-top:40px;
+	@include box-sizing;
+}
+input{
+	width:100%;
+}
 /*universal*/
 img {
 	width: 220px;
@@ -88,5 +104,49 @@ margin-left: 20px;
 }
 }
 }
+aside{
+	section.user-info{
+		margin-top:20px;
+	}
+	section{
+		padding:10px 0;
+		margin-top:20px;
+	}
+	&:first-child{
+		border:0px;
+		padding-top:0px;
+	}
+	span{
+		display:block;
+		margin-bottom:3px;
+		line-height:1;
+	}
+	h1 {
+	font-size: 1.4em;
+	text-align: left;
+	letter-spacing: -1px;
+	margin-bottom: 3px;
+	margin-top: 0px;
+	}
+}
 
-
+.gravatar {
+float: left;
+margin-right: 10px;
+} 
+.gravatar_edit {
+margin-top: 15px;
+}
+#error_explanation {
+color: red;
+ul {
+color: red;
+margin: 0 0 30px 0;
+}
+} 
+.field_with_errors {
+@extend .has-error;
+.form-control {
+color: $state-danger-text;
+}
+}
