@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   root             'static_pages#home'
   get 'signup' => 'users#new'
   get 'help'    => 'static_pages#help' 
   get 'about'   => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
   resources :users, except:[:index]
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => "sessions#destroy"
   #get 'static_pages/test' => 'static_pages#test'
   #resources :static_pages, except: [:edit, :update, :delete, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.

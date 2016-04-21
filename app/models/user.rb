@@ -6,6 +6,11 @@ validates :email, format: {with: VALID_EMAIL_REGEX, message: 'doesn\'t allowed f
 validates :name, presence: true, length: {maximum: 50}
 has_secure_password
 validates :password, presence: true, length: {minimum:8}
+def self.digest(string) 
+	cost = cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+															BCrypt::Engine.cost
+	BCrypt::Password.create(string, cost: cost)
+end
 =begin
 def validate_email 
 	if self.email.nil? || (/.+[@](gmail\.com||yahoo\.com)/ =~  self.email ) 
